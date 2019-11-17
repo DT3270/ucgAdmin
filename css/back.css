@@ -51,7 +51,10 @@
     float: left;
     width: 200px;
     height: 18px;
-    }    
+    }
+.contTabla {
+    margin: 10px;
+    }            
 .footer {
 height: 6%;
 position: absolute;

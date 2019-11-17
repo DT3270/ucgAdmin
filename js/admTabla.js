@@ -115,7 +115,7 @@ function crearTabla(tit, tab) {
     ],
 
     // Parametros para sacar el paginado (mostrar cantidad de paginas) y limitar el alto de la tabla
-    scrollY: '39vh',
+    scrollY: '38vh',
     scrollCollapse: true,
     paging: false,
     info:  false,
