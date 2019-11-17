@@ -114,9 +114,11 @@ function crearTabla(tit, tab) {
 
     ],
 
-    scrollY:        '35vh',
+    // Parametros para sacar el paginado (mostrar cantidad de paginas) y limitar el alto de la tabla
+    scrollY: '39vh',
     scrollCollapse: true,
-    paging:         false,
+    paging: false,
+    info:  false,
 
     "footerCallback": function ( row, data, start, end, display ) {
     var api = this.api(), data;  
