@@ -1,0 +1,110 @@
+.header {
+    position: absolute;
+    height: 9%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: white;
+    border-bottom: 1px solid white;
+    }
+.headerImg {
+    position: relative; 
+    float: left; 
+    height: 40px; 
+    width: 40px; 
+    margin: 8px;
+    }
+.headerTit {
+    position: relative; 
+    float: left; 
+    border: 10px;
+    color: #ecf9ec;
+    font-family: Verdana;
+    font-size: 22px;
+    }
+.back {
+    top: 9%;
+    left: 0;
+    background-position: -80px;
+    background-repeat: no-repeat;
+    background-image: url("../img/ucg.png");
+    position: absolute;
+    height: 91%;
+    width: 100%;
+    }
+.cont {
+    background-color: #d9f2d9; /* 90% */
+    margin: 0 auto;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    }    
+.contInicio {
+    text-align: left;
+    height: 110px;
+    width: 400px;
+    margin: 10px;
+    }    
+.contTit {
+    position: relative;
+    float: left;
+    width: 200px;
+    height: 18px;
+    }    
+.footer {
+height: 6%;
+position: absolute;
+left: 0;
+bottom: 0;
+width: 100%;
+color: white;
+text-align: center;
+}
+      
+.button {
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 2px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+     transition-duration: 0.4s;
+    }
+
+.button1 {
+    height: 40px;
+    width: 96%;
+    }
+
+.button2 {
+    height: 150px;
+    width: 150px;
+    }
+
+.button1:hover {
+    background-color: #D0D3D4; /* 50% */
+    color: #eee;
+    }
+
+.button2:hover {
+    background-color: #D0D3D4; /* 50% */
+    color: #eee;
+    }
+
+.p  {
+    font-family: verdana;
+    font-size: 10px;
+    margin: 5px;
+    }
+.pTotTit  {
+    position: absolute;
+    }
+.pTotDat  {
+    position: absolute;
+    left: 110px;
+    font-weight: bold;
+    }
+    

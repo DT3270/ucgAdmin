@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Icono de la página -->
+    <link rel="icon" type="image/png" href="img/ucgmini.png" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/back.css">
+    <link rel="stylesheet" href="css/select.css">
+    <link rel="stylesheet" href="css/table.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ucgAdmin</title>
+</head>
+<body onload="main();">
+    <!-- Link para usar dataTables de jQuery -->
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="js/clases.js"></script>
+
+    <!-- Header -->
+    <nav>
+        <div class="header">
+            <img src="./img/ucgminiblanco.png" id="headerImg" class="headerImg"></img>
+            <div style="margin: 12px;">
+                <output id="headerTit" class="headerTit"></output>
+            </div>
+        </div>
+    </nav>    
+    <!-- Cuerpo correspondiente a la pantalla de inicio -->
+    <div class="back" id="inicioBack" style="display: block">
+        <div class="cont contInicio">
+            <select class="select-css" id="selCiclo">
+                <option value="0">Ciclo: Todos</option>
+            </select>
+            <div class="contTit"><p class="p pTotTit">Pedidos: </p> <p class="p pTotDat" id="cantPed">1</p></div>
+            <div class="contTit"><p class="p pTotTit">Total a cobrar: </p> <p class="p pTotDat" id="totCob">2</p></div>
+            <div class="contTit"><p class="p pTotTit">Productos: </p> <p class="p pTotDat" id="cantProd">3</p></div>
+            <div class="contTit"><p class="p pTotTit">Total a pagar: </p> <p  class="p pTotDat" id="totPag">4</p></div>
+            <div class="contTit"><p class="p pTotTit">Puntos ganados: </p> <p  class="p pTotDat" id="cuanPun">5</p></div>
+            <div class="contTit"><p class="p pTotTit">Total ganado: </p> <p class="p pTotDat" id="cuanGan">6</p></div>
+        </div>    
+        <div class="cont" id="tablaBack"></div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer">
+        </div>
+    </footer>        
+    <!-- Scripts -->
+    <script src="js/variablesGlobales.js"></script>
+    <script src="js/funcionesComunes.js"></script>
+	<script src="js/admTabla.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
