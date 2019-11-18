@@ -125,7 +125,7 @@ function tablaS() {
     // Parametros para sacar el paginado (mostrar cantidad de paginas) y limitar el alto de la tabla
     scrollCollapse: true,
     scrollX: true,
-    scrollY: '25vh',
+    scrollY: '30vh',
     paging: false,
     info:  false,
     searching: true,
