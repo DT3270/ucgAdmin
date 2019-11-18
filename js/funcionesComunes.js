@@ -37,12 +37,12 @@ function asginarPantalla (pantalla) {
 
     switch (pantalla) {
         case 'Totales':
-            datosHeader.leyenda.value = 'ucg.administrarPedidosV2.6'
+            datosHeader.leyenda.value = 'ucg.estadisticas'
             datosTot.cont.style.display = 'block'
             datosTabla.cont.style.display = 'none'
             break;
         case 'Pedidos':
-            datosHeader.leyenda.value = 'ucg.buscarPedidos'
+            datosHeader.leyenda.value = 'ucg.pedidos'
             datosTot.cont.style.display = 'none'
             datosTabla.cont.style.display = 'block'
             break;
