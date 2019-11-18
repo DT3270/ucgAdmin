@@ -70,21 +70,26 @@
     max-height: 60%;
     margin: 10px;
     margin-top: 0px;
+    }
+.datAlta {
+    width: 100%;
+    max-height: 200px;
+    margin-bottom: 10px;
     overflow: scroll;
     overflow-x: hidden;
     }
-/* width */
-.contAlta::-webkit-scrollbar {
+    /* width */
+.datAlta::-webkit-scrollbar {
     width: 10px;
     border-radius: 4px;
     }
 /* Track */
-.contAlta::-webkit-scrollbar-track {
+.datAlta::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 4px;
     }
 /* Handle */
-.contAlta::-webkit-scrollbar-thumb {
+.datAlta::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 4px;
     }  

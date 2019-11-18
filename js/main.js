@@ -30,6 +30,64 @@ function main() {
         asignarColor();
     });
 
+    // Comportamiento pantalla de alta
+    document.getElementById('Ciclo').addEventListener('keypress', function (e) {
+        var key = e.which || e.keyCode;
+        if (key === 13) { // 13 is enter
+          document.getElementById('Cliente').focus();
+        }
+    });
+  
+    document.getElementById('Cliente').addEventListener('keypress', function (e) {
+        var key = e.which || e.keyCode;
+        if (key === 13) { // 13 is enter
+            document.getElementById('Producto').focus();
+        }
+    });
+
+    document.getElementById('Producto').addEventListener('keypress', function (e) {
+        var key = e.which || e.keyCode;
+        if (key === 13) { // 13 is enter
+            document.getElementById('Precio').focus();
+        }
+    });
+
+    document.getElementById('Precio').addEventListener('keypress', function (e) {
+        var key = e.which || e.keyCode;
+        if (key === 13) { // 13 is enter
+            document.getElementById('% de ganancia').focus();
+        }
+    });
+
+    document.getElementById('% de ganancia').addEventListener('keypress', function (e) {
+        var key = e.which || e.keyCode;
+        if (key === 13) { // 13 is enter
+            document.getElementById('Cantidad').focus();
+        }
+    });
+  
+    document.getElementById('Cantidad').addEventListener('keypress', function (e) {
+        var key = e.which || e.keyCode;
+        if (key === 13) { // 13 is enter
+            document.getElementById('Puntos').focus();
+        }
+    });
+
+    document.getElementById('Puntos').addEventListener('keypress', function (e) {
+        var key = e.which || e.keyCode;
+        if (key === 13) { // 13 is enter
+            document.getElementById('Notas').focus();
+        }
+    }); 
+
+    document.getElementById('Notas').addEventListener('keypress', function (e) {
+        var key = e.which || e.keyCode;
+        if (key === 13) { // 13 is enter
+            document.getElementById('Ciclo').focus();
+            guardarPedido();
+        }
+    });
+  
     // Activo pantalla     
     datosInicio.pantallaActiva = "Totales"
     asginarPantalla(datosInicio.pantallaActiva);
@@ -37,10 +95,65 @@ function main() {
 
     // Cargo pantalla de inicio    
     obtenerPedidos();
-    var volar = document.getElementsByClassName('contAlta')
-    console.log(volar)
 
 };
+
+function guardarPedido() {
+    
+    var ciclo = document.getElementById('Ciclo');
+    var cliente = document.getElementById('Cliente');
+    var producto = document.getElementById('Producto');
+    var cantidad = document.getElementById('Cantidad');
+    var precio = document.getElementById('Precio');
+    var porGanancia = document.getElementById('% de ganancia');
+    var puntos = document.getElementById('Puntos');
+    var notas = document.getElementById('Notas');
+    var paraMi = document.getElementById('check1');
+
+    // Create a request variable and assign a new XMLHttpRequest object to it.
+    var request = new XMLHttpRequest();
+    var apiUrl = urlServer + "/pedidos";
+
+    var miPedido = new Object(); 
+    miPedido.ciclo = ciclo.value;
+    miPedido.cliente = cliente.value;
+    miPedido.producto = producto.value;
+    miPedido.cantidad = cantidad.value;
+    miPedido.precio = precio.value;    
+    miPedido.porGanancia = porGanancia.value;
+    miPedido.paraMi = paraMi.value;
+    miPedido.puntos = puntos.value;
+    miPedido.notas = notas.value;
+
+    ciclo.value = "";
+    cliente.value = "";
+    producto.value = "";
+    precio.value = "";
+    porGanancia.value = "";
+    paraMi.value = "n";
+    paraMi.src = 'img/circle-regular2.png';
+    cantidad.value = "";
+    puntos.value = "";
+    notas.value = "";
+
+    let inputs = this.document.getElementsByClassName('myInput');
+    for (let i = 0; i < inputs.length; i++) {
+        if(inputs[i].value.length>=1) {
+        inputs[i].nextElementSibling.classList.add('fijar');
+        } else {
+        inputs[i].nextElementSibling.classList.remove('fijar');
+        };
+    };
+
+    var miString = JSON.stringify(miPedido);
+    request.open("post", apiUrl, true);
+    request.setRequestHeader("Content-Type", "application/json"); 
+    request.send(miString);
+    request.onload = function () {
+        eliminarTabla()
+        obtenerPedidos()
+    };
+};  
 
 function crearPantallaAlta() {
 
@@ -54,15 +167,15 @@ function crearPantallaAlta() {
     };
 
     const ciclo = new Campo('Ciclo', 'text');
-    ciclo.agregar(datosAlta.cont, 'i', 'Ingresa el ciclo del pedido');
+    ciclo.agregar(datosAlta.dat, 'i', 'Ingresa el ciclo del pedido');
     const cliente = new Campo('Cliente', 'text');
-    cliente.agregar(datosAlta.cont, 'i', 'Ingresa el cliente para el cual es el pedido');
+    cliente.agregar(datosAlta.dat, 'i', 'Ingresa el cliente para el cual es el pedido');
     const producto = new Campo('Producto', 'number');
-    producto.agregar(datosAlta.cont, 'i', 'Ingresa el número de producto del catalogo');
+    producto.agregar(datosAlta.dat, 'i', 'Ingresa el número de producto del catalogo');
     const precio = new Campo('Precio', 'number');
-    precio.agregar(datosAlta.cont, 'i', 'Ingresa el precio del producto según el catalogo');
+    precio.agregar(datosAlta.dat, 'i', 'Ingresa el precio del producto según el catalogo');
     const porGanancia = new Campo('% de ganancia', 'number');
-    porGanancia.agregar(datosAlta.cont, 'i', 'Ingresa el porcentaje de ganancia que te daría el pedido');
+    porGanancia.agregar(datosAlta.dat, 'i', 'Ingresa el porcentaje de ganancia que te daría el pedido');
 
     var newDiv = document.createElement('div');
     newDiv.style.height = 30 + 'px';
@@ -94,14 +207,14 @@ function crearPantallaAlta() {
     newP.style.left = 12 + 'px';
     newP.textContent = 'Es para mi!';
     newDiv.appendChild(newP);			
-    datosAlta.cont.appendChild(newDiv);			
+    datosAlta.dat.appendChild(newDiv);			
 
     const cantidad = new Campo('Cantidad', 'number');
-    cantidad.agregar(datosAlta.cont);
+    cantidad.agregar(datosAlta.dat);
     const puntos = new Campo('Puntos', 'number');
-    puntos.agregar(datosAlta.cont, 'i', 'La cantidad de puntos que te da el pedido (por unidad)');
+    puntos.agregar(datosAlta.dat, 'i', 'La cantidad de puntos que te da el pedido (por unidad)');
     const notas = new Campo('Notas', 'text');
-    notas.agregar(datosAlta.cont, 'i', 'Una nota que te sea ultil (por ejemplo para identificar el producto)');
+    notas.agregar(datosAlta.dat, 'i', 'Una nota que te sea ultil (por ejemplo para identificar el producto)');
 };
 
 function obtenerPedidos() {

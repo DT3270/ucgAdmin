@@ -1,0 +1,32 @@
+.button {
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 2px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+     transition-duration: 0.4s;
+}
+
+.button1 {
+  height: 40px;
+  width: 96%;
+}
+
+.button2 {
+  margin: 5px;
+  height: 150px;
+  width: 150px;
+}
+
+.button1:hover {
+  background-color: #D0D3D4; /* 50% */
+  color: #eee;
+}
+
+.button2:hover {
+  background-color: #D0D3D4; /* 50% */
+  color: #eee;
+}
