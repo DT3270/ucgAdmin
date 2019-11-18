@@ -1,4 +1,5 @@
 function asignarColor () {
+    // Seteo el color random
     let color; 
     for (let flag = 0; flag==0 ; ) {
         color = Math.floor((Math.random() * 4) + 0)
@@ -7,14 +8,16 @@ function asignarColor () {
            colorActivo = color
         };
     };
-
+    // Asigno colores a las clases
     let header = document.getElementsByClassName('header');
     let back = document.getElementsByClassName('back');
     let cont = document.getElementsByClassName('cont');
     let boton = document.getElementsByClassName('button');
+    let select = document.getElementsByClassName('select-css');
 
     document.body.style.backgroundColor = colores[color][1];
     header[0].style.backgroundColor = colores[color][1];
+    select[0].style.borderColor = colores[color][1];
 
     for (let index = 0; index < back.length; index++) {
         back[index].style.backgroundColor = colores[color][0];
