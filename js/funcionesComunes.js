@@ -12,7 +12,6 @@ function asignarColor () {
     let back = document.getElementsByClassName('back');
     let cont = document.getElementsByClassName('cont');
     let boton = document.getElementsByClassName('button');
-//  let footer = document.getElementsByClassName('footer');
 
     document.body.style.backgroundColor = colores[color][1];
     header[0].style.backgroundColor = colores[color][1];
@@ -27,15 +26,13 @@ function asignarColor () {
         boton[index].style.backgroundColor = colores[color][0];
     }
 
-//  footer[0].style.backgroundColor = colores[color][1];
-
 };
 
 function asginarPantalla (pantalla) {
 
     switch (pantalla) {
         case 'inicio':
-            datosHeader.leyenda.value = 'ucg.administrarPedidosV2.3'
+            datosHeader.leyenda.value = 'ucg.administrarPedidosV2.4'
             break;
         default:
             console.log(pantalla)
