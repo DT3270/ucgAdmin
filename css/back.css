@@ -43,7 +43,8 @@
 .contInicio {
     text-align: left;
     height: 110px;
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     margin: 10px;
     }    
 .contTit {

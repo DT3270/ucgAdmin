@@ -26,7 +26,7 @@ function asignarColor () {
         boton[index].style.backgroundColor = colores[color][0];
     }
 
-    footer[0].style.backgroundColor = colores[color][1];
+//  footer[0].style.backgroundColor = colores[color][1];
 
 };
 
