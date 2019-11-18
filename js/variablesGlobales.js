@@ -13,7 +13,7 @@ let colorActivo = 5;
 
 //----------------------------------------------------------------------------------------------//
 // Servidor base de datos
-let urlServer = 'https://adminat.herokuapp.com';
+let urlServer = 'https://adminatdesa.herokuapp.com';
 
 //----------------------------------------------------------------------------------------------//
 // Variables de la pantalla
@@ -27,6 +27,7 @@ if (screen.width < 1024) {
 } else { 
     datosInicio.pantalla = "L"
 } // end-if 
+datosInicio.pantallaActiva;
 datosInicio.imgIniTot = document.getElementById('imgIniTot'); 
 datosInicio.imgIniTab = document.getElementById('imgIniTab');
 datosInicio.imgIniAlta = document.getElementById('imgIniAlta');
@@ -44,3 +45,7 @@ datosTot.cantProd = document.getElementById('cantProd');
 let datosTabla  = new Object;
 datosTabla.cont =  document.getElementById('contTabla');
 datosTabla.tabla = [];
+
+let datosCarga  = new Object;
+datosCarga.cont =  document.getElementById('contCarga');
+datosCarga.img =  document.getElementById('imgCarga');

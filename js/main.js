@@ -8,24 +8,28 @@ function main() {
 
     // Comportamiento de botones de menú
     datosInicio.imgIniTot.addEventListener('click', function (e) {
-        asginarPantalla("Totales");
+        datosInicio.pantallaActiva = "Totales"
+        asginarPantalla(datosInicio.pantallaActiva);
         asignarColor();
     });
 
     datosInicio.imgIniTab.addEventListener('click', function (e) {
+        datosInicio.pantallaActiva = "Pedidos"
         eliminarTabla();
-        obtenerPedidos();  
-        asginarPantalla("Pedidos");
+        obtenerPedidos();
+        asginarPantalla(datosInicio.pantallaActiva);
         asignarColor();
     });
     
     datosInicio.imgIniAlta.addEventListener('click', function (e) {
-        asginarPantalla("Alta");
+        datosInicio.pantallaActiva = "Alta"
+        asginarPantalla(datosInicio.pantallaActiva);
         asignarColor();
     });
-        
+
     // Activo pantalla     
-    asginarPantalla("Totales");
+    datosInicio.pantallaActiva = "Totales"
+    asginarPantalla(datosInicio.pantallaActiva);
     asignarColor();
 
     // Cargo pantalla de inicio    
@@ -35,7 +39,7 @@ function main() {
 
 function obtenerPedidos() {
     // Bloqueo la pantalla
-    // bloquear();
+    asginarPantalla("Carga");
     // Consulta la base y deja la respuesta en la variabla json.
     var request = new XMLHttpRequest();
     var apiUrl = urlServer + "/pedidos";
@@ -43,7 +47,7 @@ function obtenerPedidos() {
     request.setRequestHeader("Content-Type", "application/json"); 
     request.send();
     request.onload = function () {
-    //    desbloquear();  
+        asginarPantalla(datosInicio.pantallaActiva);
         var json = JSON.parse(request.response);
 
         // Guardo la opción seleccionada

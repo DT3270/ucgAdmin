@@ -1,7 +1,6 @@
 function eliminarTabla() {
   // get the reference for the body
   var body = document.getElementById('contTabla');
-//var body = document.getElementsByTagName("body")[0];
   var tbl = document.getElementById('tabla_wrapper');
   body.removeChild(tbl);
 };
@@ -10,7 +9,6 @@ function crearTabla(tit, tab) {
 
   // get the reference for the body
   var body = document.getElementById('contTabla');
-  //var body = document.getElementsByTagName("body")[0];
 
   // creates a <table> element and a <tbody> element
   var tbl = document.createElement("table");

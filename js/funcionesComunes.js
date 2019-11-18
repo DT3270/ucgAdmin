@@ -34,6 +34,8 @@ function asignarColor () {
     datosInicio.imgIniTab.src = 'img/search-solid-' + colorActivo + '.png';
     datosInicio.imgIniAlta.src = 'img/cart-plus-solid-' + colorActivo + '.png';
 
+    // Imagen de carga
+    datosCarga.img.src =  'img/ajax-loader-' + colorActivo + '.gif';
 };
 
 function asginarPantalla (pantalla) {
@@ -43,17 +45,32 @@ function asginarPantalla (pantalla) {
             datosHeader.leyenda.value = 'ucg.estadisticas'
             datosTot.cont.style.display = 'block'
             datosTabla.cont.style.display = 'none'
+            datosCarga.cont.style.display = 'none'
             break;
         case 'Pedidos':
             datosHeader.leyenda.value = 'ucg.pedidos'
             datosTot.cont.style.display = 'none'
             datosTabla.cont.style.display = 'block'
+            datosCarga.cont.style.display = 'none'
             break;
         default:
             datosHeader.leyenda.value = 'ucg.nuevoPedido'
             datosTot.cont.style.display = 'none'
             datosTabla.cont.style.display = 'none'
+            datosCarga.cont.style.display = 'block'
             break;
     };
 
+};
+
+function bloquear () { 
+    datosTot.cont.style.display = 'none'
+    datosTabla.cont.style.display = 'none'
+    datosCarga.cont.style.display = 'block';
+};
+
+function desbloquear () {
+    datosTot.cont.style.display = 'none'
+    datosTabla.cont.style.display = 'none'
+    datosCarga.cont.style.display = 'none';
 };
