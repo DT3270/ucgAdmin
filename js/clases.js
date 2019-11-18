@@ -53,7 +53,7 @@ class Campo {
 	constructor(nombre, tipo) {
         this.nombre = nombre;
         this.tipo = tipo;
-		this.ancho = 320;
+		this.ancho = 270;
         this.alto = 30;
     }
     
