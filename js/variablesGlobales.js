@@ -49,3 +49,6 @@ datosTabla.tabla = [];
 let datosCarga  = new Object;
 datosCarga.cont =  document.getElementById('contCarga');
 datosCarga.img =  document.getElementById('imgCarga');
+
+let datosAlta  = new Object;
+datosAlta.cont =  document.getElementById('contAlta');

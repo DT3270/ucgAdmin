@@ -15,7 +15,7 @@ function asignarColor () {
     let boton = document.getElementsByClassName('button');
     let select = document.getElementsByClassName('select-css');
 
-    document.body.style.backgroundColor = colores[color][1];
+    document.body.style.backgroundColor = colores[color][0];
     header[0].style.backgroundColor = colores[color][1];
     select[0].style.borderColor = colores[color][1];
 
@@ -42,22 +42,32 @@ function asginarPantalla (pantalla) {
 
     switch (pantalla) {
         case 'Totales':
-            datosHeader.leyenda.value = 'ucg.estadisticas'
+            datosHeader.leyenda.value = 'ucg.misEstadisticas'
             datosTot.cont.style.display = 'block'
             datosTabla.cont.style.display = 'none'
             datosCarga.cont.style.display = 'none'
+            datosAlta.cont.style.display = 'none'
             break;
         case 'Pedidos':
-            datosHeader.leyenda.value = 'ucg.pedidos'
+            datosHeader.leyenda.value = 'ucg.misPedidos'
             datosTot.cont.style.display = 'none'
             datosTabla.cont.style.display = 'block'
             datosCarga.cont.style.display = 'none'
+            datosAlta.cont.style.display = 'none'
             break;
-        default:
+        case 'Alta':
             datosHeader.leyenda.value = 'ucg.nuevoPedido'
             datosTot.cont.style.display = 'none'
             datosTabla.cont.style.display = 'none'
+            datosCarga.cont.style.display = 'none'
+            datosAlta.cont.style.display = 'block'
+            break;
+        default:
+            datosHeader.leyenda.value = 'ucg.cargando'
+            datosTot.cont.style.display = 'none'
+            datosTabla.cont.style.display = 'none'
             datosCarga.cont.style.display = 'block'
+            datosAlta.cont.style.display = 'none'
             break;
     };
 
@@ -66,11 +76,13 @@ function asginarPantalla (pantalla) {
 function bloquear () { 
     datosTot.cont.style.display = 'none'
     datosTabla.cont.style.display = 'none'
+    datosAlta.cont.style.display = 'none'
     datosCarga.cont.style.display = 'block';
 };
 
 function desbloquear () {
     datosTot.cont.style.display = 'none'
     datosTabla.cont.style.display = 'none'
+    datosAlta.cont.style.display = 'none'
     datosCarga.cont.style.display = 'none';
 };

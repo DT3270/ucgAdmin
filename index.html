@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/back.css">
     <link rel="stylesheet" href="css/select.css">
     <link rel="stylesheet" href="css/table.css">
+    <link rel="stylesheet" href="css/myInput.css">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,9 +37,11 @@
             <select class="select-css" id="selCiclo">
                 <option value="0">Ciclo: Todos</option>
             </select>
-            <img class="imgIni" id="imgIniTot"></img>
-            <img class="imgIni" id="imgIniTab"></img>
-            <img class="imgIni" id="imgIniAlta"></img>
+            <div style="float: right;">
+                <img class="imgIni" id="imgIniTot"></img>
+                <img class="imgIni" id="imgIniTab"></img>
+                <img class="imgIni" id="imgIniAlta"></img>
+            </div>
         </div>    
         <!-- Bloque de totales -->    
         <div class="cont contTot" id="contTot" style="display: block">
@@ -51,9 +54,13 @@
         </div>
         <!-- Bloque de la tabla -->    
         <div class="cont contTabla" id="contTabla" style="display: none"></div>
+        <!-- Bloque para el alta -->    
+        <div class="cont contAlta" id="contAlta" style="display: none">
+        </div>
         <!-- Bloque de carga -->    
         <div class="cont contTabla" id="contCarga" style="display: none">
             <img class="imgCarga" id="imgCarga"></img>
+            <p class="p">Cargando...</p>
         </div>
     </div>
     <!-- Footer 

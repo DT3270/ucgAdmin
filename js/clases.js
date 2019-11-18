@@ -12,7 +12,8 @@ class Input {
         // Contenedor de todos los elemtentos
         var newDiv = document.createElement('div');
 		newDiv.style.height = this.alto + 14 + "px";   // Valor en duro que te cambia si cambias el tamaño
-        newDiv.style.width = this.ancho + 14 + "px";     // Valor en duro que te cambia si cambias el tamaño
+        newDiv.style.width = "100%";     // Valor en duro que te cambia si cambias el tamaño
+        newDiv.style.maxWidth = this.ancho + 14 + "px";     // Valor en duro que te cambia si cambias el tamaño
         newDiv.style.position = 'relative';
 
         // Input
@@ -52,7 +53,7 @@ class Campo {
 	constructor(nombre, tipo) {
         this.nombre = nombre;
         this.tipo = tipo;
-		this.ancho = 270;
+		this.ancho = 320;
         this.alto = 30;
     }
     
