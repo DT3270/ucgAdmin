@@ -22,15 +22,25 @@ datosHeader.leyenda = document.getElementById('headerTit');
 
 let datosInicio = new Object;
 datosInicio.pantalla;
+if (screen.width < 1024) {
+    datosInicio.pantalla = "S"
+} else { 
+    datosInicio.pantalla = "L"
+} // end-if 
 datosInicio.imgIniTot = document.getElementById('imgIniTot'); 
 datosInicio.imgIniTab = document.getElementById('imgIniTab');
 datosInicio.imgIniAlta = document.getElementById('imgIniAlta');
-
 datosInicio.selCiclo = document.getElementById('selCiclo');
-datosInicio.cantPed = document.getElementById('cantPed');
-datosInicio.totPag = document.getElementById('totPag');
-datosInicio.cuanGan = document.getElementById('cuanGan');
-datosInicio.totCob = document.getElementById('totCob');
-datosInicio.cuanPun = document.getElementById('cuanPun');
-datosInicio.cantProd = document.getElementById('cantProd');
-datosInicio.tabla = [];
+
+let datosTot = new Object;
+datosTot.cont =  document.getElementById('contTot');
+datosTot.cantPed = document.getElementById('cantPed');
+datosTot.totPag = document.getElementById('totPag');
+datosTot.cuanGan = document.getElementById('cuanGan');
+datosTot.totCob = document.getElementById('totCob');
+datosTot.cuanPun = document.getElementById('cuanPun');
+datosTot.cantProd = document.getElementById('cantProd');
+
+let datosTabla  = new Object;
+datosTabla.cont =  document.getElementById('contTabla');
+datosTabla.tabla = [];

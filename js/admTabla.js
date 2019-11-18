@@ -1,6 +1,6 @@
 function eliminarTabla() {
   // get the reference for the body
-  var body = document.getElementById('tablaBack');
+  var body = document.getElementById('contTabla');
 //var body = document.getElementsByTagName("body")[0];
   var tbl = document.getElementById('tabla_wrapper');
   body.removeChild(tbl);
@@ -9,7 +9,7 @@ function eliminarTabla() {
 function crearTabla(tit, tab) {
 
   // get the reference for the body
-  var body = document.getElementById('tablaBack');
+  var body = document.getElementById('contTabla');
   //var body = document.getElementsByTagName("body")[0];
 
   // creates a <table> element and a <tbody> element
@@ -308,8 +308,8 @@ function tablaL() {
 
     // Parametros para sacar el paginado (mostrar cantidad de paginas) y limitar el alto de la tabla
     scrollCollapse: true,
-    scrollX: true,
-    scrollY: '40vh',
+    scrollX: false,
+    scrollY: '50vh',
     paging: false,
     info:  false,
     searching: true,

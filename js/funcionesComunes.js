@@ -26,16 +26,30 @@ function asignarColor () {
         boton[index].style.backgroundColor = colores[color][0];
     }
 
+    // Botones de función
+    datosInicio.imgIniTot.src = 'img/chart-pie-solid-' + colorActivo + '.png';
+    datosInicio.imgIniTab.src = 'img/search-solid-' + colorActivo + '.png';
+    datosInicio.imgIniAlta.src = 'img/cart-plus-solid-' + colorActivo + '.png';
+
 };
 
 function asginarPantalla (pantalla) {
 
     switch (pantalla) {
-        case 'inicio':
-            datosHeader.leyenda.value = 'ucg.administrarPedidosV2.5'
+        case 'Totales':
+            datosHeader.leyenda.value = 'ucg.administrarPedidosV2.6'
+            datosTot.cont.style.display = 'block'
+            datosTabla.cont.style.display = 'none'
+            break;
+        case 'Pedidos':
+            datosHeader.leyenda.value = 'ucg.buscarPedidos'
+            datosTot.cont.style.display = 'none'
+            datosTabla.cont.style.display = 'block'
             break;
         default:
-            console.log(pantalla)
+            datosHeader.leyenda.value = 'ucg.nuevoPedido'
+            datosTot.cont.style.display = 'none'
+            datosTabla.cont.style.display = 'none'
             break;
     };
 

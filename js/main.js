@@ -6,21 +6,27 @@ function main() {
         obtenerPedidos();  
     });
 
+    // Comportamiento de botones de menú
+    datosInicio.imgIniTot.addEventListener('click', function (e) {
+        asginarPantalla("Totales");
+        asignarColor();
+    });
+
+    datosInicio.imgIniTab.addEventListener('click', function (e) {
+        eliminarTabla();
+        obtenerPedidos();  
+        asginarPantalla("Pedidos");
+        asignarColor();
+    });
+    
+    datosInicio.imgIniAlta.addEventListener('click', function (e) {
+        asginarPantalla("Alta");
+        asignarColor();
+    });
+        
     // Activo pantalla     
-    asginarPantalla("inicio");
+    asginarPantalla("Totales");
     asignarColor();
-
-    // Botones de función
-    datosInicio.imgIniTot.src = 'img/chart-pie-solid-' + colorActivo + '.png';
-    datosInicio.imgIniTab.src = 'img/search-solid-' + colorActivo + '.png';
-    datosInicio.imgIniAlta.src = 'img/cart-plus-solid-' + colorActivo + '.png';
-
-    // Defino tamaño pantalla
-    if (screen.width < 1024) {
-        datosInicio.pantalla = "S"
-    } else { 
-        datosInicio.pantalla = "L"
-    } // end-if 
 
     // Cargo pantalla de inicio    
     obtenerPedidos();
@@ -137,17 +143,17 @@ function obtenerPedidos() {
             }; //end-if
         }; //end-for
 
-        datosInicio.tabla = tabla;
+        datosTabla.tabla = tabla;
         var tit = ["Ciclo", "Cliente", "Producto", "Cantidad", "Precio Unitario", "%", "Total a Cobrar", "Total a Pagar", "Ganancia", "Puntos", "Notas", ""];
 
-        crearTabla(tit, datosInicio.tabla);
+        crearTabla(tit, datosTabla.tabla);
 
-        datosInicio.cantPed.textContent = cantPed;
-        datosInicio.totPag.textContent = '$ ' + (totCob - cuanGan).toFixed(2);
-        datosInicio.cuanGan.textContent = '$ ' + cuanGan.toFixed(2);
-        datosInicio.totCob.textContent = '$ ' + totCob.toFixed(2);
-        datosInicio.cuanPun.textContent = cuanPun;
-        datosInicio.cantProd.textContent = totProd;
+        datosTot.cantPed.textContent = cantPed;
+        datosTot.totPag.textContent = '$ ' + (totCob - cuanGan).toFixed(2);
+        datosTot.cuanGan.textContent = '$ ' + cuanGan.toFixed(2);
+        datosTot.totCob.textContent = '$ ' + totCob.toFixed(2);
+        datosTot.cuanPun.textContent = cuanPun;
+        datosTot.cantProd.textContent = totProd;
     }; // end-request
 };
 

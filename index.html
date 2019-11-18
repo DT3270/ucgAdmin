@@ -31,22 +31,25 @@
     
     <!-- Cuerpo correspondiente a la pantalla de inicio -->
     <div class="back" id="inicioBack" style="display: block">        
-        <div class="cont contInicio">
+        <!-- Bloque de menú -->
+        <div class="cont contInicio" id="contInicio">
             <select class="select-css" id="selCiclo">
                 <option value="0">Ciclo: Todos</option>
             </select>
             <img class="imgIni" id="imgIniTot"></img>
             <img class="imgIni" id="imgIniTab"></img>
             <img class="imgIni" id="imgIniAlta"></img>
-            <!-- Totales 
-            <div class="contTit"><p class="p pTotTit">Pedidos: </p> <p class="p pTotDat" id="cantPed"></p></div>
-            <div class="contTit"><p class="p pTotTit">Total a cobrar: </p> <p class="p pTotDat" id="totCob"></p></div>
-            <div class="contTit"><p class="p pTotTit">Productos: </p> <p class="p pTotDat" id="cantProd"></p></div>
-            <div class="contTit"><p class="p pTotTit">Total a pagar: </p> <p  class="p pTotDat" id="totPag"></p></div>
-            <div class="contTit"><p class="p pTotTit">Puntos ganados: </p> <p  class="p pTotDat" id="cuanPun"></p></div>
-            <div class="contTit"><p class="p pTotTit">Total ganado: </p> <p class="p pTotDat" id="cuanGan"></p></div>-->
         </div>    
-        <div class="cont contTabla" id="tablaBack"></div>
+        <!-- Bloque de totales -->        
+        <div class="cont contTot" id="contTot" style="display: block">
+            <div class="contTit"><p class="p pTotTit">Cantidad de Pedidos: </p> <p class="p pTotDat" id="cantPed"></p></div>
+            <div class="contTit"><p class="p pTotTit">Cantidad de Productos: </p> <p class="p pTotDat" id="cantProd"></p></div>
+            <div class="contTit"><p class="p pTotTit">Puntos ganados: </p> <p  class="p pTotDat" id="cuanPun"></p></div>
+            <div class="contTit"><p class="p pTotTit">Total a cobrar: </p> <p class="p pTotDat" id="totCob"></p></div>
+            <div class="contTit"><p class="p pTotTit">Total a pagar: </p> <p  class="p pTotDat" id="totPag"></p></div>
+            <div class="contTit"><p class="p pTotTit">Total ganado: </p> <p class="p pTotDat" id="cuanGan"></p></div>
+        </div>
+        <div class="cont contTabla" id="contTabla" style="display: none"></div>
     </div>
     <!-- Footer 
     <footer>
