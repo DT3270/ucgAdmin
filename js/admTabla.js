@@ -125,7 +125,7 @@ function tablaS() {
     // Parametros para sacar el paginado (mostrar cantidad de paginas) y limitar el alto de la tabla
     scrollCollapse: true,
     scrollX: true,
-    scrollY: '20vh',
+    scrollY: '25vh',
     paging: false,
     info:  false,
     searching: true,
@@ -309,7 +309,7 @@ function tablaL() {
     // Parametros para sacar el paginado (mostrar cantidad de paginas) y limitar el alto de la tabla
     scrollCollapse: true,
     scrollX: false,
-    scrollY: '50vh',
+    scrollY: '54vh',
     paging: false,
     info:  false,
     searching: true,
