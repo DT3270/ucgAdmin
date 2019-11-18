@@ -34,7 +34,7 @@ function asginarPantalla (pantalla) {
 
     switch (pantalla) {
         case 'inicio':
-            datosHeader.leyenda.value = 'ucg.administrarPedidos'
+            datosHeader.leyenda.value = 'ucg.administrarPedidosV2.0'
             break;
         default:
             console.log(pantalla)
