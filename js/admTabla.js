@@ -81,6 +81,14 @@ function crearTabla(tit, tab) {
   // sets the border attribute of tbl to 2;
   tbl.setAttribute("id", "tabla");
   tbl.setAttribute("class", "display");
+  if (datosInicio.pantalla == "S") {
+    tablaS();
+  } else {
+    tablaL();
+  }
+};
+
+function tablaS() {
 
   $('#tabla').DataTable( {
 
@@ -115,10 +123,12 @@ function crearTabla(tit, tab) {
     ],
 
     // Parametros para sacar el paginado (mostrar cantidad de paginas) y limitar el alto de la tabla
-    scrollY: '20vh',
     scrollCollapse: true,
+    scrollX: true,
+    scrollY: '20vh',
     paging: false,
     info:  false,
+    searching: false,
 
     "footerCallback": function ( row, data, start, end, display ) {
     var api = this.api(), data;  
@@ -259,6 +269,190 @@ function crearTabla(tit, tab) {
   }
 
   } );
+
 }
 
+function tablaL() {
+
+  $('#tabla').DataTable( {
+
+    "language": 
+      {
+        "sProcessing":     "Procesando...",
+        "sLengthMenu":     "Mostrar _MENU_ registros",
+        "sZeroRecords":    "No se encontraron resultados",
+        "sEmptyTable":     "Ningún dato disponible en esta tabla",
+        "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
+        "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+        "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+        "sInfoPostFix":    "",
+        "sSearch":         "Buscar:",
+        "sUrl":            "",
+        "sInfoThousands":  ",",
+        "sLoadingRecords": "Cargando...",
+        "oPaginate": {
+          "sFirst":    "Primero",
+          "sLast":     "Último",
+          "sNext":     "Siguiente",
+          "sPrevious": "Anterior"
+                      },
+        "oAria": {
+          "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+          "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                  }      },
+
+    "columnDefs": [
+      {className: "dt-body-center","targets": [0,2,3,4,5,6,7,8,9]},
+
+    ],
+
+    // Parametros para sacar el paginado (mostrar cantidad de paginas) y limitar el alto de la tabla
+    scrollCollapse: true,
+    scrollX: true,
+    scrollY: '40vh',
+    paging: false,
+    info:  true,
+    searching: true,
+
+    "footerCallback": function ( row, data, start, end, display ) {
+    var api = this.api(), data;  
+
+    // Remove the formatting to get integer data for summation
+    var intVal = function ( i ) {
+      return typeof i === 'string' ?
+        i.replace(/[\$,]/g, '')*1 :
+        typeof i === 'number' ?
+          i : 0;
+    };
+
+    // Total over all pages
+    cantidadTab = api
+      .column( 3 )
+      .data()
+      .reduce( function (a, b) {
+        return intVal(a) + intVal(b);
+      }, 0 );
+
+      precioUnitTab = api
+      .column( 4 )
+      .data()
+      .reduce( function (a, b) {
+        return intVal(a) + intVal(b);
+      }, 0 );
+
+      precioTab = api
+      .column( 5 )
+      .data()
+      .reduce( function (a, b) {
+        return intVal(a) + intVal(b);
+      }, 0 );
+
+      gananciaTab = api
+      .column( 7 )
+      .data()
+      .reduce( function (a, b) {
+        return intVal(a) + intVal(b);
+      }, 0 );
+
+      puntosTab = api
+      .column( 8 )
+      .data()
+      .reduce( function (a, b) {
+        return intVal(a) + intVal(b);
+      }, 0 );
+
+    // Total over this page  
+    cantidadTab = api
+    .column( 3, { page: 'current'} )
+    .data()
+    .reduce( function (a, b) {
+      return intVal(a) + intVal(b);
+    }, 0 );
+
+    precioUnitTab = api
+      .column( 4, { page: 'current'} )
+      .data()
+      .reduce( function (a, b) {
+        return intVal(a) + intVal(b);
+      }, 0 );
+
+    totalACobrar = api
+      .column( 6, { page: 'current'} )
+      .data()
+      .reduce( function (a, b) {
+        return intVal(a) + intVal(b);
+      }, 0 );
+
+    totalAPagar = api
+      .column( 7, { page: 'current'} )
+      .data()
+      .reduce( function (a, b) {
+        return intVal(a) + intVal(b);
+      }, 0 );
+
+    gananciaTab = api
+      .column( 8, { page: 'current'} )
+      .data()
+      .reduce( function (a, b) {
+        return intVal(a) + intVal(b);
+      }, 0 );
+
+      puntosTab = api
+      .column( 9, { page: 'current'} )
+      .data()
+      .reduce( function (a, b) {
+        return intVal(a) + intVal(b);
+      }, 0 );
+
+    // Update footer
+    // Ciclo
+    $( api.column( 0 ).footer() ).html(
+      ' ' 
+    );
+    // Cliente
+    $( api.column( 1 ).footer() ).html(
+      ' ' 
+    );
+    // Producto
+    $( api.column( 2 ).footer() ).html(
+      ' ' 
+    );
+    // Cantidad
+    $( api.column( 3 ).footer() ).html(
+      cantidadTab 
+    );
+    // Precio unitario
+    $( api.column( 4 ).footer() ).html(
+      '$'+precioUnitTab.toFixed(2) 
+    );
+    // Porcentaje
+    $( api.column( 5 ).footer() ).html(
+      ' ' 
+    );
+    // Total a cobrar
+    $( api.column( 6 ).footer() ).html(
+      '$'+totalACobrar.toFixed(2) 
+    );
+    // Total a pagar
+    $( api.column( 7 ).footer() ).html(
+      '$'+totalAPagar.toFixed(2) 
+    );
+    // Ganancia
+    $( api.column( 8 ).footer() ).html(
+      '$'+gananciaTab.toFixed(2) 
+    );
+    // Puntos
+    $( api.column( 9 ).footer() ).html(
+      puntosTab
+    );
+    // Notas
+    $( api.column( 10 ).footer() ).html(
+      ' '
+    );
+
+  }
+
+  } );
+
+}
 

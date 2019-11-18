@@ -21,6 +21,7 @@ let datosHeader = new Object;
 datosHeader.leyenda = document.getElementById('headerTit');
 
 let datosInicio = new Object;
+datosInicio.pantalla;
 datosInicio.selCiclo = document.getElementById('selCiclo');
 datosInicio.cantPed = document.getElementById('cantPed');
 datosInicio.totPag = document.getElementById('totPag');

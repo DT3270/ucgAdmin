@@ -1,9 +1,21 @@
 function main() {
 
+
     datosInicio.selCiclo.addEventListener('change', function (e) {
         eliminarTabla();
         obtenerPedidos();  
     });
+
+    // Defino tamaño pantalla
+    var div = document.getElementsByClassName('contInicio')
+    console.log(div)
+    if (screen.width < 1024) {
+        datosInicio.pantalla = "S"
+        div[0].style.height = 160 + 'px';
+    } else { 
+        datosInicio.pantalla = "L"
+        div[0].style.height = 100 + 'px';
+    } // end-if 
 
     // Activo pantalla     
     asginarPantalla("inicio");
@@ -11,6 +23,7 @@ function main() {
 
     // Cargo pantalla de inicio    
     obtenerPedidos();
+
 };
 
 function obtenerPedidos() {
