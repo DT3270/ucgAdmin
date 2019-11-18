@@ -1,14 +1,22 @@
 function main() {
 
-
+    // Comportamiento del combo
     datosInicio.selCiclo.addEventListener('change', function (e) {
         eliminarTabla();
         obtenerPedidos();  
     });
 
+    // Activo pantalla     
+    asginarPantalla("inicio");
+    asignarColor();
+
+    // Botones de función
+    datosInicio.imgIniTot.src = 'img/chart-pie-solid-' + colorActivo + '.png';
+    datosInicio.imgIniTab.src = 'img/search-solid-' + colorActivo + '.png';
+    datosInicio.imgIniAlta.src = 'img/cart-plus-solid-' + colorActivo + '.png';
+
     // Defino tamaño pantalla
     var div = document.getElementsByClassName('contInicio')
-    console.log(div)
     if (screen.width < 1024) {
         datosInicio.pantalla = "S"
         div[0].style.height = 160 + 'px';
@@ -16,10 +24,6 @@ function main() {
         datosInicio.pantalla = "L"
         div[0].style.height = 100 + 'px';
     } // end-if 
-
-    // Activo pantalla     
-    asginarPantalla("inicio");
-    asignarColor();
 
     // Cargo pantalla de inicio    
     obtenerPedidos();
@@ -122,15 +126,16 @@ function obtenerPedidos() {
                 cuanPun = cuanPun + puntos;
                 cantPed = cantPed + 1;
 
-                var button = document.createElement('button');
-                button.type = 'button';
-                button.style = 'border: none; background-color: transparent';
-                button.innerText = 'eliminar';
-                button.id = json[i]._id;
-                button.addEventListener('click', function(e){
+                var newImg = document.createElement('img');
+                newImg.id = json[i]._id;
+                newImg.src = 'img/minus-circle-solid.png';
+                newImg.style.height = 20 + 'px';
+                newImg.style.width = 20 + 'px';         
+                newImg.addEventListener('click', function(e){
                     eliminarPedido(e.target.id);
                 });
-                linea.push(button);
+                linea.push(newImg);
+
                 tabla.push(linea);
             }; //end-if
         }; //end-for

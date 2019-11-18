@@ -1,12 +1,13 @@
 .select-css {
     display: block;
+    float: left;
     font-size: 14px;
     font-family: Verdana;
     cursor: pointer;
     color: #444;
     line-height: 1.3;
     padding: .6em 1.4em .5em .8em;
-    width: 100%;
+    width: 60%;
     height: 40px;
     max-width: 100%; 
     box-sizing: border-box;

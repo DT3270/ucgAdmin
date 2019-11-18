@@ -53,8 +53,16 @@
     }
 .contTabla {
     margin: 10px;
-    max-width: 1100px;
+    max-width: 1000px;
     }            
+.imgIni {
+    position: relative;
+    float: left;
+    margin-left: 12px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    }
 .footer {
     height: 6%;
     position: absolute;
@@ -64,7 +72,6 @@
     color: white;
     text-align: center;
     }
-      
 .button {
     border: none;
     border-radius: 4px;
@@ -76,27 +83,22 @@
     -webkit-transition-duration: 0.4s; /* Safari */
      transition-duration: 0.4s;
     }
-
 .button1 {
     height: 40px;
     width: 96%;
     }
-
 .button2 {
     height: 150px;
     width: 150px;
     }
-
 .button1:hover {
     background-color: #D0D3D4; /* 50% */
     color: #eee;
     }
-
 .button2:hover {
     background-color: #D0D3D4; /* 50% */
     color: #eee;
     }
-
 .p  {
     font-family: verdana;
     font-size: 10px;
@@ -104,6 +106,7 @@
     }
 .pTotTit  {
     position: absolute;
+    width: 85px;
     }
 .pTotDat  {
     position: absolute;

@@ -22,6 +22,10 @@ datosHeader.leyenda = document.getElementById('headerTit');
 
 let datosInicio = new Object;
 datosInicio.pantalla;
+datosInicio.imgIniTot = document.getElementById('imgIniTot'); 
+datosInicio.imgIniTab = document.getElementById('imgIniTab');
+datosInicio.imgIniAlta = document.getElementById('imgIniAlta');
+
 datosInicio.selCiclo = document.getElementById('selCiclo');
 datosInicio.cantPed = document.getElementById('cantPed');
 datosInicio.totPag = document.getElementById('totPag');

@@ -128,7 +128,7 @@ function tablaS() {
     scrollY: '20vh',
     paging: false,
     info:  false,
-    searching: false,
+    searching: true,
 
     "footerCallback": function ( row, data, start, end, display ) {
     var api = this.api(), data;  
@@ -311,7 +311,7 @@ function tablaL() {
     scrollX: true,
     scrollY: '40vh',
     paging: false,
-    info:  true,
+    info:  false,
     searching: true,
 
     "footerCallback": function ( row, data, start, end, display ) {
