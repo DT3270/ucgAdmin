@@ -12,8 +12,9 @@ function asignarColor () {
     let back = document.getElementsByClassName('back');
     let cont = document.getElementsByClassName('cont');
     let boton = document.getElementsByClassName('button');
-    let footer = document.getElementsByClassName('footer');
+//  let footer = document.getElementsByClassName('footer');
 
+    document.body.style.backgroundColor = colores[color][1];
     header[0].style.backgroundColor = colores[color][1];
 
     for (let index = 0; index < back.length; index++) {
