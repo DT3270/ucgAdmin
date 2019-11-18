@@ -16,13 +16,10 @@ function main() {
     datosInicio.imgIniAlta.src = 'img/cart-plus-solid-' + colorActivo + '.png';
 
     // Defino tamaño pantalla
-    var div = document.getElementsByClassName('contInicio')
     if (screen.width < 1024) {
         datosInicio.pantalla = "S"
-        div[0].style.height = 160 + 'px';
     } else { 
         datosInicio.pantalla = "L"
-        div[0].style.height = 100 + 'px';
     } // end-if 
 
     // Cargo pantalla de inicio    
