@@ -122,7 +122,6 @@ class Campo {
         area.appendChild(newDiv);
 
     };
-
     mostrarMsg(msg) { 
         // Mensaje de error
         var error = document.getElementById(this.nombre + 'myInput-PErr');
