@@ -67,29 +67,24 @@
     text-align: left;
     width: 100%;
     max-width: 340px;
-    max-height: 60%;
+    max-height: 72%;
     margin: 10px;
     margin-top: 0px;
-    }
-.datAlta {
-    width: 100%;
-    max-height: 200px;
-    margin-bottom: 10px;
     overflow: scroll;
     overflow-x: hidden;
     }
     /* width */
-.datAlta::-webkit-scrollbar {
+.contAlta::-webkit-scrollbar {
     width: 10px;
     border-radius: 4px;
     }
 /* Track */
-.datAlta::-webkit-scrollbar-track {
+.contAlta::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 4px;
     }
 /* Handle */
-.datAlta::-webkit-scrollbar-thumb {
+.contAlta::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 4px;
     }  

@@ -268,7 +268,7 @@ function tablaS() {
 
   } );
 
-}
+};
 
 function tablaL() {
 
@@ -452,5 +452,4 @@ function tablaL() {
 
   } );
 
-}
-
+};

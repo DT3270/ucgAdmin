@@ -139,9 +139,9 @@ function guardarPedido() {
     let inputs = this.document.getElementsByClassName('myInput');
     for (let i = 0; i < inputs.length; i++) {
         if(inputs[i].value.length>=1) {
-        inputs[i].nextElementSibling.classList.add('fijar');
+            inputs[i].nextElementSibling.classList.add('fijar');
         } else {
-        inputs[i].nextElementSibling.classList.remove('fijar');
+            inputs[i].nextElementSibling.classList.remove('fijar');
         };
     };
 
@@ -167,15 +167,15 @@ function crearPantallaAlta() {
     };
 
     const ciclo = new Campo('Ciclo', 'text');
-    ciclo.agregar(datosAlta.dat, 'i', 'Ingresa el ciclo del pedido');
+    ciclo.agregar(datosAlta.cont, 'i', 'Ingresa el ciclo del pedido');
     const cliente = new Campo('Cliente', 'text');
-    cliente.agregar(datosAlta.dat, 'i', 'Ingresa el cliente para el cual es el pedido');
+    cliente.agregar(datosAlta.cont, 'i', 'Ingresa el cliente para el cual es el pedido');
     const producto = new Campo('Producto', 'number');
-    producto.agregar(datosAlta.dat, 'i', 'Ingresa el número de producto del catalogo');
+    producto.agregar(datosAlta.cont, 'i', 'Ingresa el número de producto del catalogo');
     const precio = new Campo('Precio', 'number');
-    precio.agregar(datosAlta.dat, 'i', 'Ingresa el precio del producto según el catalogo');
+    precio.agregar(datosAlta.cont, 'i', 'Ingresa el precio del producto según el catalogo');
     const porGanancia = new Campo('% de ganancia', 'number');
-    porGanancia.agregar(datosAlta.dat, 'i', 'Ingresa el porcentaje de ganancia que te daría el pedido');
+    porGanancia.agregar(datosAlta.cont, 'i', 'Ingresa el porcentaje de ganancia que te daría el pedido');
 
     var newDiv = document.createElement('div');
     newDiv.style.height = 30 + 'px';
@@ -189,7 +189,7 @@ function crearPantallaAlta() {
     newImg.style.height = 24 + 'px';
     newImg.style.width = 24 + 'px';
     newImg.style.margin = 5 + 'px';
-    newImg.style.cssFloat	= 'left'
+    newImg.style.cssFloat	= 'left';
     newDiv.addEventListener('click', function(){
         if (newImg.value == 's') {
             newImg.value = 'n'
@@ -207,14 +207,25 @@ function crearPantallaAlta() {
     newP.style.left = 12 + 'px';
     newP.textContent = 'Es para mi!';
     newDiv.appendChild(newP);			
-    datosAlta.dat.appendChild(newDiv);			
+    datosAlta.cont.appendChild(newDiv);			
 
     const cantidad = new Campo('Cantidad', 'number');
-    cantidad.agregar(datosAlta.dat);
+    cantidad.agregar(datosAlta.cont);
     const puntos = new Campo('Puntos', 'number');
-    puntos.agregar(datosAlta.dat, 'i', 'La cantidad de puntos que te da el pedido (por unidad)');
+    puntos.agregar(datosAlta.cont, 'i', 'La cantidad de puntos que te da el pedido (por unidad)');
     const notas = new Campo('Notas', 'text');
-    notas.agregar(datosAlta.dat, 'i', 'Una nota que te sea ultil (por ejemplo para identificar el producto)');
+    notas.agregar(datosAlta.cont, 'i', 'Una nota que te sea ultil (por ejemplo para identificar el producto)');
+
+    var newButton = document.createElement('button');
+    newButton.id = "guardar";
+    newButton.className = "button button1";
+    newButton.onclick = "guardarPedido();";
+    newButton.style.marginTop = 10 + "px";
+    newButton.textContent = "GUARDAR";
+    newButton.addEventListener('click', function(){
+        guardarPedido()
+    });                    
+    datosAlta.cont.appendChild(newButton);
 };
 
 function obtenerPedidos() {

@@ -52,5 +52,4 @@ datosCarga.img =  document.getElementById('imgCarga');
 
 let datosAlta  = new Object;
 datosAlta.cont =  document.getElementById('contAlta');
-datosAlta.dat =  document.getElementById('datAlta');
 datosAlta.guardar =  document.getElementById('guardar');
