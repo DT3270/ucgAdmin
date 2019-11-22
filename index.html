@@ -15,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ucgAdmin</title>
 </head>
-<body onload="main();">
+<body onload="main()" onresize="dimensionarPantalla()">
     <!-- Link para usar dataTables de jQuery -->
 	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
@@ -25,9 +25,7 @@
     <nav>
         <div class="header">
             <img src="./img/ucgminiblanco.png" id="headerImg" class="headerImg"></img>
-            <div style="margin: 12px;">
-                <output id="headerTit" class="headerTit"></output>
-            </div>
+            <div><output id="headerTit" class="headerTit"></output></div>
         </div>
     </nav>    
     
@@ -58,7 +56,7 @@
         <!-- Bloque para el alta -->    
         <div class="cont contAlta" id="contAlta" style="display: none">
         </div>
-    <!-- Bloque de carga -->    
+        <!-- Bloque de carga -->    
         <div class="cont contTabla" id="contCarga" style="display: none">
             <img class="imgCarga" id="imgCarga"></img>
             <p class="p">Cargando...</p>

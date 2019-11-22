@@ -1,8 +1,76 @@
 function main() {
 
+    // Dimensionar pantalla
+    dimensionarPantalla();
+
     // Creo la pantalla de alta (agregado de campos para el alta de un pedido)
     crearPantallaAlta();
 
+    // Seteo comportamiento de pantalla
+    comportamientoPantalla();
+
+    // Activo pantalla     
+    datosInicio.pantallaActiva = "Totales"
+    asginarPantalla(datosInicio.pantallaActiva);
+    asignarColor();
+
+    // Cargo pantalla de inicio    
+    obtenerPedidos();
+
+};
+
+function dimensionarPantalla() {
+
+    let headHeight = window.innerHeight * 9 / 100;
+
+    var obj = document.getElementsByClassName('headerImg');
+    for (let i = 0; i < obj.length; i++) {
+        obj[i].style.height = headHeight - 8 + "px";
+        obj[i].style.width = headHeight - 8 + "px";
+        obj[i].style.margin = 4 + "px";
+    };
+
+    var obj = document.getElementsByClassName('headerTit');
+    for (let i = 0; i < obj.length; i++) {
+        obj[i].style.marginTop = headHeight / 4 + "px";            
+        switch (true) {
+            case (headHeight > 40):
+                obj[i].style.fontSize = 22 + "px";            
+                break;    
+            case (headHeight > 30):
+                obj[i].style.fontSize = 12 + "px";            
+                break;    
+            case (headHeight > 20):
+                obj[i].style.fontSize = 8 + "px";            
+                break;    
+            default:
+                obj[i].style.fontSize = 5 + "px";            
+                break;
+        }
+    };
+
+    var obj = document.getElementsByClassName('header');
+    for (let i = 0; i < obj.length; i++) {
+        switch (true) {
+            case (headHeight > 40):
+                obj[i].style.display = "block";            
+                break;    
+            case (headHeight > 30):
+                obj[i].style.display = "block";            
+                break;    
+            case (headHeight > 20):
+                obj[i].style.display = "block";            
+                break;    
+            default:
+                obj[i].style.display = "none";            
+                break;
+        }
+    };
+
+};
+
+function comportamientoPantalla() {
+     
     // Comportamiento del combo
     datosInicio.selCiclo.addEventListener('change', function (e) {
         eliminarTabla();
@@ -23,7 +91,7 @@ function main() {
         asginarPantalla(datosInicio.pantallaActiva);
         asignarColor();
     });
-    
+
     datosInicio.imgIniAlta.addEventListener('click', function (e) {
         datosInicio.pantallaActiva = "Alta"
         asginarPantalla(datosInicio.pantallaActiva);
@@ -34,10 +102,10 @@ function main() {
     document.getElementById('Ciclo').addEventListener('keypress', function (e) {
         var key = e.which || e.keyCode;
         if (key === 13) { // 13 is enter
-          document.getElementById('Cliente').focus();
+        document.getElementById('Cliente').focus();
         }
     });
-  
+
     document.getElementById('Cliente').addEventListener('keypress', function (e) {
         var key = e.which || e.keyCode;
         if (key === 13) { // 13 is enter
@@ -65,7 +133,7 @@ function main() {
             document.getElementById('Cantidad').focus();
         }
     });
-  
+
     document.getElementById('Cantidad').addEventListener('keypress', function (e) {
         var key = e.which || e.keyCode;
         if (key === 13) { // 13 is enter
@@ -86,16 +154,7 @@ function main() {
             document.getElementById('Ciclo').focus();
             guardarPedido();
         }
-    });
-  
-    // Activo pantalla     
-    datosInicio.pantallaActiva = "Totales"
-    asginarPantalla(datosInicio.pantallaActiva);
-    asignarColor();
-
-    // Cargo pantalla de inicio    
-    obtenerPedidos();
-
+    });    
 };
 
 function guardarPedido() {

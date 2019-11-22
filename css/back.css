@@ -10,17 +10,12 @@
 .headerImg {
     position: relative; 
     float: left; 
-    width: 40px;
-    height: 40px;
-    margin: 8px;
     }
 .headerTit {
     position: relative; 
     float: left; 
-    border: 10px;
     color: #ecf9ec;
     font-family: Verdana;
-    font-size: 22px;
     }
 .back {
     top: 9%;

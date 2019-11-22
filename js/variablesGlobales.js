@@ -21,12 +21,6 @@ let datosHeader = new Object;
 datosHeader.leyenda = document.getElementById('headerTit');
 
 let datosInicio = new Object;
-datosInicio.pantalla;
-if (screen.width < 1024) {
-    datosInicio.pantalla = "S"
-} else { 
-    datosInicio.pantalla = "L"
-} // end-if 
 datosInicio.pantallaActiva;
 datosInicio.imgIniTot = document.getElementById('imgIniTot'); 
 datosInicio.imgIniTab = document.getElementById('imgIniTab');
