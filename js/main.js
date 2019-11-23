@@ -11,18 +11,18 @@ function main() {
     asginarPantalla(datosInicio.pantallaActiva);
     asignarColor();
 
-    // Dimensionar pantalla
-    dimensionarPantalla();
-
     // Cargo pantalla de inicio    
     obtenerPedidos();
+
+    // Dimensionar pantalla
+    dimensionarPantalla();
 
 };
 
 function dimensionarPantalla() {
 
     let headHeight = window.innerHeight * 9 / 100;
-    alert(headHeight)
+
     // Varío el tamaño de la imagen de la cabecera en función del tamaño de la pantalla
     var headerImg = document.getElementsByClassName('headerImg');
     for (let i = 0; i < headerImg.length; i++) {
