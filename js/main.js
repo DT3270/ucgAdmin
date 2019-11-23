@@ -1,8 +1,5 @@
 function main() {
 
-    // Dimensionar pantalla
-    dimensionarPantalla();
-
     // Creo la pantalla de alta (agregado de campos para el alta de un pedido)
     crearPantallaAlta();
 
@@ -14,6 +11,9 @@ function main() {
     asginarPantalla(datosInicio.pantallaActiva);
     asignarColor();
 
+    // Dimensionar pantalla
+    dimensionarPantalla();
+
     // Cargo pantalla de inicio    
     obtenerPedidos();
 
@@ -23,46 +23,49 @@ function dimensionarPantalla() {
 
     let headHeight = window.innerHeight * 9 / 100;
 
-    var obj = document.getElementsByClassName('headerImg');
-    for (let i = 0; i < obj.length; i++) {
-        obj[i].style.height = headHeight - 8 + "px";
-        obj[i].style.width = headHeight - 8 + "px";
-        obj[i].style.margin = 4 + "px";
+    // Varío el tamaño de la imagen de la cabecera en función del tamaño de la pantalla
+    var headerImg = document.getElementsByClassName('headerImg');
+    for (let i = 0; i < headerImg.length; i++) {
+        headerImg[i].style.height = headHeight - 8 + "px";
+        headerImg[i].style.width = headHeight - 8 + "px";
+        headerImg[i].style.margin = 4 + "px";
     };
 
-    var obj = document.getElementsByClassName('headerTit');
-    for (let i = 0; i < obj.length; i++) {
-        obj[i].style.marginTop = headHeight / 4 + "px";            
+    // Varío el tamaño del texto de la cabecera en función del tamaño de la pantalla
+    var headerTit = document.getElementsByClassName('headerTit');
+    for (let i = 0; i < headerTit.length; i++) {
         switch (true) {
             case (headHeight > 40):
-                obj[i].style.fontSize = 22 + "px";            
+                headerTit[i].style.fontSize = 22 + "px";              
                 break;    
             case (headHeight > 30):
-                obj[i].style.fontSize = 12 + "px";            
+                headerTit[i].style.fontSize = 12 + "px";            
                 break;    
             case (headHeight > 20):
-                obj[i].style.fontSize = 8 + "px";            
+                headerTit[i].style.fontSize = 8 + "px";            
                 break;    
             default:
-                obj[i].style.fontSize = 5 + "px";            
+                headerTit[i].style.fontSize = 5 + "px";            
                 break;
         }
+        headerTit[i].style.top = headHeight / 2 - headerTit[i].clientHeight / 2 + "px";
     };
 
-    var obj = document.getElementsByClassName('header');
-    for (let i = 0; i < obj.length; i++) {
+    // Defino si muestro o no la cabecera en función del tamaño de la pantalla (me falta extender el fondo)
+    var header = document.getElementsByClassName('header');
+    for (let i = 0; i < header.length; i++) {
         switch (true) {
             case (headHeight > 40):
-                obj[i].style.display = "block";            
+                header[i].style.display = "block";
                 break;    
             case (headHeight > 30):
-                obj[i].style.display = "block";            
+                header[i].style.display = "block";            
                 break;    
             case (headHeight > 20):
-                obj[i].style.display = "block";            
+                header[i].style.display = "block";            
                 break;    
             default:
-                obj[i].style.display = "none";            
+                header[i].style.display = "none";            
                 break;
         }
     };
@@ -209,6 +212,7 @@ function guardarPedido() {
     request.setRequestHeader("Content-Type", "application/json"); 
     request.send(miString);
     request.onload = function () {
+        alert("Alta efectuada")
         eliminarTabla()
         obtenerPedidos()
     };
