@@ -21,8 +21,32 @@ function main() {
 
 function dimensionarPantalla() {
 
+    setTimeout(function(){
+        //hago tiempo
+    }, 2000);
+
     let headHeight = window.innerHeight * 9 / 100;
-    alert(window.innerHeight)
+    var height1 = screen.height * window.devicePixelRatio;
+    var height2 = screen.height / window.devicePixelRatio - window.screenTop
+
+    alert(
+        "window.innerHeight: " + window.innerHeight + " \n" + 
+        "window.devicePixelRatio: " + window.devicePixelRatio + " \n" + 
+        "window.screenTop: " + window.screenTop + " \n" + 
+        "screen.height: " + screen.height
+        ) 
+
+        setTimeout(function(){
+            //hago tiempo
+        }, 2000);
+    
+        alert(
+            "window.innerHeight: " + window.innerHeight + " \n" + 
+            "window.devicePixelRatio: " + window.devicePixelRatio + " \n" + 
+            "window.screenTop: " + window.screenTop + " \n" + 
+            "screen.height: " + screen.height
+            ) 
+            
     // Varío el tamaño de la imagen de la cabecera en función del tamaño de la pantalla
     var headerImg = document.getElementsByClassName('headerImg');
     for (let i = 0; i < headerImg.length; i++) {
