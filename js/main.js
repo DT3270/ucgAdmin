@@ -1,5 +1,8 @@
 function main() {
 
+    // Dimensionar pantalla
+    dimensionarPantalla();
+
     // Creo la pantalla de alta (agregado de campos para el alta de un pedido)
     crearPantallaAlta();
 
@@ -14,38 +17,20 @@ function main() {
     // Cargo pantalla de inicio    
     obtenerPedidos();
 
-    // Dimensionar pantalla
-    dimensionarPantalla();
-
 };
 
 function dimensionarPantalla() {
-
-    setTimeout(function(){
-        //hago tiempo
-    }, 2000);
-
     let headHeight = window.innerHeight * 9 / 100;
-    var height1 = screen.height * window.devicePixelRatio;
-    var height2 = screen.height / window.devicePixelRatio - window.screenTop
-
+//  var height1 = screen.height * window.devicePixelRatio;
+//  var height2 = screen.height / window.devicePixelRatio - window.screenTop
+    console.log(document.body)
     alert(
         "window.innerHeight: " + window.innerHeight + " \n" + 
         "window.devicePixelRatio: " + window.devicePixelRatio + " \n" + 
         "window.screenTop: " + window.screenTop + " \n" + 
+        "body.clientHeight: " + document.body.height + " \n" + 
         "screen.height: " + screen.height
         ) 
-
-        setTimeout(function(){
-            //hago tiempo
-        }, 2000);
-    
-        alert(
-            "window.innerHeight: " + window.innerHeight + " \n" + 
-            "window.devicePixelRatio: " + window.devicePixelRatio + " \n" + 
-            "window.screenTop: " + window.screenTop + " \n" + 
-            "screen.height: " + screen.height
-            ) 
             
     // Varío el tamaño de la imagen de la cabecera en función del tamaño de la pantalla
     var headerImg = document.getElementsByClassName('headerImg');
