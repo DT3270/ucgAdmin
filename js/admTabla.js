@@ -2,11 +2,11 @@ function eliminarTabla() {
   // get the reference for the body
   var body = document.getElementById('contTabla');
   var tbl = document.getElementById('tabla_wrapper');
-  body.removeChild(tbl);
+  if (tbl) {body.removeChild(tbl);};
 };
 
 function crearTabla(tit, tab) {
-
+  
   // get the reference for the body
   var body = document.getElementById('contTabla');
 
@@ -311,6 +311,7 @@ function tablaL() {
     paging: false,
     info:  false,
     searching: true,
+    responsive: true,
 
     "footerCallback": function ( row, data, start, end, display ) {
     var api = this.api(), data;  

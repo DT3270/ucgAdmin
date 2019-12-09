@@ -1,8 +1,5 @@
 function main() {
 
-    // Dimensionar pantalla
-    dimensionarPantalla();
-
     // Creo la pantalla de alta (agregado de campos para el alta de un pedido)
     crearPantallaAlta();
 
@@ -20,16 +17,18 @@ function main() {
 };
 
 function dimensionarPantalla() {
-    let headHeight = window.innerHeight * 9 / 100;
+    let headHeight = $(window).height() * 9 / 100;
 //  var height1 = screen.height * window.devicePixelRatio;
 //  var height2 = screen.height / window.devicePixelRatio - window.screenTop
-    console.log(document.body)
+    console.log(document.body.style)
     alert(
-        "window.innerHeight: " + window.innerHeight + " \n" + 
-        "window.devicePixelRatio: " + window.devicePixelRatio + " \n" + 
-        "window.screenTop: " + window.screenTop + " \n" + 
-        "body.clientHeight: " + document.body.height + " \n" + 
-        "screen.height: " + screen.height
+        "window.innerHeight: " + window.innerHeight + " \n" +
+        "$(window).height(): " + $(window).height()
+//      "headHeight: " + headHeight + " \n" + 
+//      "window.devicePixelRatio: " + window.devicePixelRatio + " \n" + 
+//      "window.screenTop: " + window.screenTop + " \n" + 
+//      "body.clientHeight: " + document.body.height + " \n" + 
+//      "screen.height: " + screen.height
         ) 
             
     // Varío el tamaño de la imagen de la cabecera en función del tamaño de la pantalla
@@ -78,6 +77,11 @@ function dimensionarPantalla() {
                 break;
         }
     };
+
+    // Cargo nuevamente la tabla en pantalla
+    eliminarTabla();
+    var tit = ["Ciclo", "Cliente", "Producto", "Cantidad", "Precio Unitario", "%", "Total a Cobrar", "Total a Pagar", "Ganancia", "Puntos", "Notas", ""];
+    crearTabla(tit, datosTabla.tabla);
 
 };
 
@@ -346,82 +350,93 @@ function obtenerPedidos() {
 
         datosInicio.selCiclo.value = seleccion
 
-        // Recorro el json cargando la tabla.
-        var tabla = [];
-        var cantPed = 0;
-        var totCob = 0;
-        var cuanPun = 0;
-        var cuanGan = 0;
-        var totProd = 0;
+        // Cargo la tabla con la información de los ciclos de la base
+        datosTabla.tabla = cargarTabla(json);
+        console.log('1',datosTabla.tabla)
+        // Dimensionar pantalla
+        dimensionarPantalla();
 
-        for (i=json.length-1;i>-1;i--){
-            if (json[i].ciclo == selCiclo.value||selCiclo.value == 0) {
-            
-                var linea = [];
+//      var tit = ["Ciclo", "Cliente", "Producto", "Cantidad", "Precio Unitario", "%", "Total a Cobrar", "Total a Pagar", "Ganancia", "Puntos", "Notas", ""];
+//      crearTabla(tit, datosTabla.tabla);
 
-                linea.push(document.createTextNode('C' + json[i].ciclo));
-                linea.push(document.createTextNode(json[i].cliente));
-                linea.push(document.createTextNode(json[i].producto));
-                linea.push(document.createTextNode(json[i].cantidad));
-                linea.push(document.createTextNode('$' + json[i].precio.toFixed(2)));
-
-                // Porcentaje de ganancia
-                linea.push(document.createTextNode(json[i].porGanancia));
-
-                if (json[i].paraMi == 's') {
-                    var ganancia = 0;  
-                    var totalACobrar = json[i].precio * json[i].cantidad - json[i].precio * json[i].porGanancia / 100; 
-                } else {
-                    var ganancia = (json[i].precio * json[i].cantidad) * json[i].porGanancia / 100 ;            
-                    var totalACobrar = json[i].precio * json[i].cantidad; 
-                }
-
-                // Total a cobrar
-                linea.push(document.createTextNode('$' + totalACobrar.toFixed(2)));
-
-                // Total a pagar
-                var totalAPagar = totalACobrar - ganancia; 
-                linea.push(document.createTextNode('$' + totalAPagar.toFixed(2)));
-
-                // Ganancia
-                linea.push(document.createTextNode('$' + ganancia.toFixed(2)));
-
-                var puntos = json[i].puntos * json[i].cantidad;
-                linea.push(document.createTextNode(puntos));
-                linea.push(document.createTextNode(json[i].notas));
-
-                totProd = totProd + json[i].cantidad;
-                totCob = totCob + json[i].precio * json[i].cantidad;
-                cuanGan = cuanGan + ganancia;
-                cuanPun = cuanPun + puntos;
-                cantPed = cantPed + 1;
-
-                var newImg = document.createElement('img');
-                newImg.id = json[i]._id;
-                newImg.src = 'img/minus-circle-solid.png';
-                newImg.style.height = 20 + 'px';
-                newImg.style.width = 20 + 'px';         
-                newImg.addEventListener('click', function(e){
-                    eliminarPedido(e.target.id);
-                });
-                linea.push(newImg);
-
-                tabla.push(linea);
-            }; //end-if
-        }; //end-for
-
-        datosTabla.tabla = tabla;
-        var tit = ["Ciclo", "Cliente", "Producto", "Cantidad", "Precio Unitario", "%", "Total a Cobrar", "Total a Pagar", "Ganancia", "Puntos", "Notas", ""];
-
-        crearTabla(tit, datosTabla.tabla);
-
-        datosTot.cantPed.textContent = cantPed;
-        datosTot.totPag.textContent = '$ ' + (totCob - cuanGan).toFixed(2);
-        datosTot.cuanGan.textContent = '$ ' + cuanGan.toFixed(2);
-        datosTot.totCob.textContent = '$ ' + totCob.toFixed(2);
-        datosTot.cuanPun.textContent = cuanPun;
-        datosTot.cantProd.textContent = totProd;
     }; // end-request
+};
+
+function cargarTabla(json) {
+
+    // Recorro el json cargando la tabla.
+    var tabla = [];
+    var cantPed = 0;
+    var totCob = 0;
+    var cuanPun = 0;
+    var cuanGan = 0;
+    var totProd = 0;
+
+    for (i=json.length-1;i>-1;i--){
+        
+        if (json[i].ciclo == selCiclo.value||selCiclo.value == 0) {
+        
+            var linea = [];
+
+            linea.push(document.createTextNode('C' + json[i].ciclo));
+            linea.push(document.createTextNode(json[i].cliente));
+            linea.push(document.createTextNode(json[i].producto));
+            linea.push(document.createTextNode(json[i].cantidad));
+            linea.push(document.createTextNode('$' + json[i].precio.toFixed(2)));
+
+            // Porcentaje de ganancia
+            linea.push(document.createTextNode(json[i].porGanancia));
+
+            if (json[i].paraMi == 's') {
+                var ganancia = 0;  
+                var totalACobrar = json[i].precio * json[i].cantidad - json[i].precio * json[i].porGanancia / 100; 
+            } else {
+                var ganancia = (json[i].precio * json[i].cantidad) * json[i].porGanancia / 100 ;            
+                var totalACobrar = json[i].precio * json[i].cantidad; 
+            }
+
+            // Total a cobrar
+            linea.push(document.createTextNode('$' + totalACobrar.toFixed(2)));
+
+            // Total a pagar
+            var totalAPagar = totalACobrar - ganancia; 
+            linea.push(document.createTextNode('$' + totalAPagar.toFixed(2)));
+
+            // Ganancia
+            linea.push(document.createTextNode('$' + ganancia.toFixed(2)));
+
+            var puntos = json[i].puntos * json[i].cantidad;
+            linea.push(document.createTextNode(puntos));
+            linea.push(document.createTextNode(json[i].notas));
+
+            totProd = totProd + json[i].cantidad;
+            totCob = totCob + json[i].precio * json[i].cantidad;
+            cuanGan = cuanGan + ganancia;
+            cuanPun = cuanPun + puntos;
+            cantPed = cantPed + 1;
+
+            var newImg = document.createElement('img');
+            newImg.id = json[i]._id;
+            newImg.src = 'img/minus-circle-solid.png';
+            newImg.style.height = 20 + 'px';
+            newImg.style.width = 20 + 'px';         
+            newImg.addEventListener('click', function(e){
+                eliminarPedido(e.target.id);
+            });
+            linea.push(newImg);
+
+            tabla.push(linea);
+        }; //end-if
+    }; //end-for
+
+    datosTot.cantPed.textContent = cantPed;
+    datosTot.totPag.textContent = '$ ' + (totCob - cuanGan).toFixed(2);
+    datosTot.cuanGan.textContent = '$ ' + cuanGan.toFixed(2);
+    datosTot.totCob.textContent = '$ ' + totCob.toFixed(2);
+    datosTot.cuanPun.textContent = cuanPun;
+    datosTot.cantProd.textContent = totProd;
+
+    return tabla;
 };
 
 function eliminarPedido(id) {
