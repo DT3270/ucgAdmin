@@ -37,7 +37,7 @@ datosTot.cuanPun = document.getElementById('cuanPun');
 datosTot.cantProd = document.getElementById('cantProd');
 
 let datosTabla  = new Object;
-datosTabla.cont =  document.getElementById('contTabla');
+datosTabla.cont =  document.getElementById('contTablaScroll');
 datosTabla.tabla = [];
 
 let datosCarga  = new Object;

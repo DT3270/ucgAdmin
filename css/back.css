@@ -68,7 +68,7 @@
     overflow: scroll;
     overflow-x: hidden;
     }
-    /* width */
+/* width */
 .contAlta::-webkit-scrollbar {
     width: 10px;
     border-radius: 4px;
@@ -86,7 +86,26 @@
 .contTabla {
     margin: 10px;
     width: 1000px;
+    }
+.contTablaScroll {
+    width: 100%;
+    overflow-y: hidden;
     }            
+/* width */
+.contTablaScroll::-webkit-scrollbar {
+    height: 10px;
+    border-radius: 4px;
+    }
+/* Track */
+.contTablaScroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+    }
+/* Handle */
+.contTablaScroll::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+    }                  
 .imgIni {
     position: relative;
     float: left;

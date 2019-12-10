@@ -80,6 +80,7 @@ function crearTabla(tit, tab) {
   tbl.setAttribute("id", "tabla");
   tbl.setAttribute("class", "display");
   tablaL();
+
 };
 
 function tablaL() {
