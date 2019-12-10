@@ -58,31 +58,33 @@
     }
 .contAlta {
     position: relative;
-    float: left;
     text-align: left;
-    width: 100%;
-    max-width: 300px;
-    max-height: 72%;
+    width: 300px;
+    height: 60%;
     margin: 10px;
     margin-top: 0px;
-    overflow: scroll;
+    overflow: hidden;
     overflow-x: hidden;
     }
+.contAltaScroll {
+    max-width: 600px;
+    overflow-x: hidden;
+    }            
 /* width */
-.contAlta::-webkit-scrollbar {
-    width: 10px;
+.contAltaScroll::-webkit-scrollbar {
+    height: 10px;
     border-radius: 4px;
     }
 /* Track */
-.contAlta::-webkit-scrollbar-track {
+.contAltaScroll::-webkit-scrollbar-track {
     background-color: transparent;
     border-radius: 4px;
     }
 /* Handle */
-.contAlta::-webkit-scrollbar-thumb {
+.contAltaScroll::-webkit-scrollbar-thumb {
     background: #888;
     border-radius: 4px;
-    }  
+    }                      
 .contTabla {
     margin: 10px;
     width: 1000px;

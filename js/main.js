@@ -232,15 +232,15 @@ function crearPantallaAlta() {
     };
 
     const ciclo = new Campo('Ciclo', 'text');
-    ciclo.agregar(datosAlta.cont, 'i', 'Ingresa el ciclo del pedido');
+    ciclo.agregar(datosAlta.cont2, 'i', 'Ingresa el ciclo del pedido');
     const cliente = new Campo('Cliente', 'text');
-    cliente.agregar(datosAlta.cont, 'i', 'Ingresa el cliente para el cual es el pedido');
+    cliente.agregar(datosAlta.cont2, 'i', 'Ingresa el cliente para el cual es el pedido');
     const producto = new Campo('Producto', 'number');
-    producto.agregar(datosAlta.cont, 'i', 'Ingresa el número de producto del catalogo');
+    producto.agregar(datosAlta.cont2, 'i', 'Ingresa el número de producto del catalogo');
     const precio = new Campo('Precio', 'number');
-    precio.agregar(datosAlta.cont, 'i', 'Ingresa el precio del producto según el catalogo');
+    precio.agregar(datosAlta.cont2, 'i', 'Ingresa el precio del producto según el catalogo');
     const porGanancia = new Campo('% de ganancia', 'number');
-    porGanancia.agregar(datosAlta.cont, 'i', 'Ingresa el porcentaje de ganancia que te daría el pedido');
+    porGanancia.agregar(datosAlta.cont2, 'i', 'Ingresa el porcentaje de ganancia que te daría el pedido');
 
     var newDiv = document.createElement('div');
     newDiv.style.height = 30 + 'px';
@@ -272,14 +272,14 @@ function crearPantallaAlta() {
     newP.style.left = 12 + 'px';
     newP.textContent = 'Es para mi!';
     newDiv.appendChild(newP);			
-    datosAlta.cont.appendChild(newDiv);			
+    datosAlta.cont2.appendChild(newDiv);			
 
     const cantidad = new Campo('Cantidad', 'number');
-    cantidad.agregar(datosAlta.cont);
+    cantidad.agregar(datosAlta.cont2);
     const puntos = new Campo('Puntos', 'number');
-    puntos.agregar(datosAlta.cont, 'i', 'La cantidad de puntos que te da el pedido (por unidad)');
+    puntos.agregar(datosAlta.cont2, 'i', 'La cantidad de puntos que te da el pedido (por unidad)');
     const notas = new Campo('Notas', 'text');
-    notas.agregar(datosAlta.cont, 'i', 'Una nota que te sea ultil (por ejemplo para identificar el producto)');
+    notas.agregar(datosAlta.cont2, 'i', 'Una nota que te sea ultil (por ejemplo para identificar el producto)');
 
     var newButton = document.createElement('button');
     newButton.id = "guardar";
@@ -290,7 +290,7 @@ function crearPantallaAlta() {
     newButton.addEventListener('click', function(){
         guardarPedido()
     });                    
-    datosAlta.cont.appendChild(newButton);
+    datosAlta.cont2.appendChild(newButton);
 };
 
 function obtenerPedidos() {
