@@ -29,11 +29,11 @@
     }
 .cont {
     background-color: #d9f2d9; /* 90% */
-    margin: 0 auto;
-    padding: 1rem;
-    text-align: center;
     border-radius: 4px;
     text-decoration: none;
+    margin: 0 auto;
+    text-align: center;
+    padding: 1rem;
     }    
 .contInicio {
     text-align: left;
@@ -75,7 +75,7 @@
     }
 /* Track */
 .contAlta::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background-color: transparent;
     border-radius: 4px;
     }
 /* Handle */
@@ -88,7 +88,7 @@
     width: 1000px;
     }
 .contTablaScroll {
-    width: 100%;
+    max-width: 1200px;
     overflow-y: hidden;
     }            
 /* width */
@@ -98,7 +98,7 @@
     }
 /* Track */
 .contTablaScroll::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background-color: transparent;
     border-radius: 4px;
     }
 /* Handle */
