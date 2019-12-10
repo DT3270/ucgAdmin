@@ -55,7 +55,6 @@ function crearTabla(tit, tab) {
   // put the <tbody> in the <table>
   tbl.appendChild(tblBody);
 
-  /*
   // creating footer
   // creates a table row
   var tblFoot = document.createElement("tfoot");
@@ -72,10 +71,8 @@ function crearTabla(tit, tab) {
   };
   tblFoot.appendChild(row);
 
-
   // put the <thead> in the <table>
   tbl.appendChild(tblFoot);
-  */
 
   // appends <table> into <body>
   body.appendChild(tbl);
@@ -130,7 +127,7 @@ function tablaL() {
     info:  false,
     searching: true,
     responsive: true,
-/*
+
     "footerCallback": function ( row, data, start, end, display ) {
     var api = this.api(), data;  
 
@@ -221,7 +218,6 @@ function tablaL() {
         return intVal(a) + intVal(b);
       }, 0 );
 
-    /*
     // Update footer
     // Ciclo
     $( api.column( 0 ).footer() ).html(
@@ -269,7 +265,6 @@ function tablaL() {
     );
   
   }
-  */
   } );
 
 };
