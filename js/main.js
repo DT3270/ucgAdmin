@@ -17,19 +17,8 @@ function main() {
 };
 
 function dimensionarPantalla() {
+    // Uso JQuery para obtener height porque es lo unico que me anda en android
     let headHeight = $(window).height() * 9 / 100;
-//  var height1 = screen.height * window.devicePixelRatio;
-//  var height2 = screen.height / window.devicePixelRatio - window.screenTop
-    console.log(document.body.style)
-    alert(
-        "window.innerHeight: " + window.innerHeight + " \n" +
-        "$(window).height(): " + $(window).height()
-//      "headHeight: " + headHeight + " \n" + 
-//      "window.devicePixelRatio: " + window.devicePixelRatio + " \n" + 
-//      "window.screenTop: " + window.screenTop + " \n" + 
-//      "body.clientHeight: " + document.body.height + " \n" + 
-//      "screen.height: " + screen.height
-        ) 
             
     // Varío el tamaño de la imagen de la cabecera en función del tamaño de la pantalla
     var headerImg = document.getElementsByClassName('headerImg');
