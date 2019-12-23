@@ -173,7 +173,6 @@ function guardarPedido() {
     var puntos = document.getElementById('Puntos');
     var notas = document.getElementById('Notas');
     var paraMi = document.getElementById('check1');
-    console.log("paraMi: " + paraMi.value)
     // Create a request variable and assign a new XMLHttpRequest object to it.
     var request = new XMLHttpRequest();
     var apiUrl = urlServer + "/pedidos";
