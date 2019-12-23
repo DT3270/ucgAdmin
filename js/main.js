@@ -259,6 +259,7 @@ function crearPantallaAlta() {
     newImg.style.width = 24 + 'px';
     newImg.style.margin = 5 + 'px';
     newImg.style.cssFloat	= 'left';
+    newImg.value = 'n';
     newDiv.addEventListener('click', function(){
         if (newImg.value == 's') {
             newImg.value = 'n'
