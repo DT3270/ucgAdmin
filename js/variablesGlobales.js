@@ -13,7 +13,7 @@ let colorActivo = 5;
 
 //----------------------------------------------------------------------------------------------//
 // Servidor base de datos
-let urlServer = 'https://adminatdesa.herokuapp.com';
+let urlServer = 'https://adminat.herokuapp.com';
 
 //----------------------------------------------------------------------------------------------//
 // Variables de la pantalla

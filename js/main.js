@@ -173,7 +173,7 @@ function guardarPedido() {
     var puntos = document.getElementById('Puntos');
     var notas = document.getElementById('Notas');
     var paraMi = document.getElementById('check1');
-
+    console.log("paraMi: " + paraMi.value)
     // Create a request variable and assign a new XMLHttpRequest object to it.
     var request = new XMLHttpRequest();
     var apiUrl = urlServer + "/pedidos";
@@ -189,17 +189,6 @@ function guardarPedido() {
     miPedido.puntos = puntos.value;
     miPedido.notas = notas.value;
 
-    ciclo.value = "";
-    cliente.value = "";
-    producto.value = "";
-    precio.value = "";
-    porGanancia.value = "";
-    paraMi.value = "n";
-    paraMi.src = 'img/circle-regular2.png';
-    cantidad.value = "";
-    puntos.value = "";
-    notas.value = "";
-
     let inputs = this.document.getElementsByClassName('myInput');
     for (let i = 0; i < inputs.length; i++) {
         if(inputs[i].value.length>=1) {
@@ -214,9 +203,24 @@ function guardarPedido() {
     request.setRequestHeader("Content-Type", "application/json"); 
     request.send(miString);
     request.onload = function () {
-        alert("Alta efectuada")
-        eliminarTabla()
-        obtenerPedidos()
+        if (request.status==200) {
+            alert("Alta efectuada")
+            ciclo.value = "";
+            cliente.value = "";
+            producto.value = "";
+            precio.value = "";
+            porGanancia.value = "";
+            paraMi.value = "n";
+            paraMi.src = 'img/circle-regular2.png';
+            cantidad.value = "";
+            puntos.value = "";
+            notas.value = "";        
+            eliminarTabla()
+            obtenerPedidos()                
+        } else {
+            var obj = JSON.parse(request.response)
+            alert("Alta no efectuada. Mensaje: " + obj.message)
+        }
     };
 };  
 
@@ -341,7 +345,6 @@ function obtenerPedidos() {
 
         // Cargo la tabla con la información de los ciclos de la base
         datosTabla.tabla = cargarTabla(json);
-        console.log('1',datosTabla.tabla)
         // Dimensionar pantalla
         dimensionarPantalla();
 
