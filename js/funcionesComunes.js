@@ -11,12 +11,14 @@ function asignarColor () {
     // Asigno colores a las clases
     let header = document.getElementsByClassName('header');
     let back = document.getElementsByClassName('back');
+    let footer = document.getElementsByClassName('footer');
     let cont = document.getElementsByClassName('cont');
     let boton = document.getElementsByClassName('button');
     let select = document.getElementsByClassName('select-css');
 
     document.body.style.backgroundColor = colores[color][0];
     header[0].style.backgroundColor = colores[color][1];
+    footer[0].style.backgroundColor = colores[color][1];    
     select[0].style.borderColor = colores[color][1];
 
     for (let index = 0; index < back.length; index++) {

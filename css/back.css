@@ -4,8 +4,6 @@
     left: 0;
     top: 0;
     width: 100%;
-    color: white;
-    border-bottom: 1px solid white;
     }
 .headerImg {
     position: relative; 
@@ -22,11 +20,21 @@
     left: 0;
     background-position: -80px;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-y: auto;
+    overflow-x: hidden;
     background-image: url("../img/ucg.png");
     position: absolute;
-    height: 91%;
+    height: 88%;
     width: 100%;
     }
+.footer {
+    position: absolute;
+    top: 97%;
+    height: 3%;
+    left: 0;
+    width: 100%;
+    }    
 .cont {
     background-color: #d9f2d9; /* 90% */
     border-radius: 4px;
@@ -115,15 +123,6 @@
     width: 40px;
     height: 40px;
     cursor: pointer;
-    }
-.footer {
-    height: 6%;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: white;
-    text-align: center;
     }
 .p  {
     font-family: verdana;
