@@ -3,6 +3,9 @@ function main() {
     // Creo la pantalla de alta (agregado de campos para el alta de un pedido)
     crearPantallaAlta();
 
+    // Agrego el campo buscar a la pantalla de pedidos
+    crearPantallaPedidos();
+
     // Seteo comportamiento de pantalla
     comportamientoPantalla();
 
@@ -295,6 +298,13 @@ function crearPantallaAlta() {
         guardarPedido()
     });                    
     datosAlta.cont2.appendChild(newButton);
+};
+
+function crearPantallaPedidos() {
+
+    const buscar = new Campo('Buscar', 'text');
+    buscar.agregar(datosBusqueda.cont, '', '');
+
 };
 
 function obtenerPedidos() {

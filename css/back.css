@@ -49,6 +49,12 @@
     height: 40px;
     margin: 10px;
     }    
+.contBusqueda {
+    text-align: left;
+    max-width: 300px;
+    height: 40px;
+    margin: 10px;
+    }    
 .contTot {
     position: relative;
     float: left;

@@ -6,7 +6,7 @@ function eliminarTabla() {
 };
 
 function crearTabla(tit, tab) {
-  
+
   // get the reference for the body
   var body = document.getElementById('contTabla');
 
@@ -86,7 +86,7 @@ function crearTabla(tit, tab) {
 
 function tablaL() {
 
-  $('#tabla').DataTable( {
+$('#tabla').DataTable( {
 
     "language": 
       {
@@ -266,5 +266,10 @@ function tablaL() {
   
   }
   } );
+
+  $('#Buscar').keyup(function(){
+    $('#tabla').DataTable().search(
+      $(this).val()).draw();
+  })
 
 };

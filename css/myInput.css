@@ -12,7 +12,7 @@ input[type=number] {
     -moz-appearance:textfield;
 }
 .myInput {
-    border: 1px solid #5DADE2;
+    border: 1px solid #909497; 
     padding-top: 6px;
     padding-left: 4px;
     border-radius: 4px;
@@ -39,7 +39,7 @@ input[type=number] {
   pointer-events: none;
 }
 .myInput-PMsg {
-  color:#5DADE2;
+  color:#909497;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;

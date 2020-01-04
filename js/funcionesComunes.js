@@ -46,6 +46,7 @@ function asginarPantalla (pantalla) {
         case 'Totales':
             datosHeader.leyenda.value = 'ucg.misEstadisticas'
             datosTot.cont.style.display = 'block'
+            datosBusqueda.cont.style.display = 'none'
             datosTabla.cont.style.display = 'none'
             datosCarga.cont.style.display = 'none'
             datosAlta.cont.style.display = 'none'
@@ -53,6 +54,7 @@ function asginarPantalla (pantalla) {
         case 'Pedidos':
             datosHeader.leyenda.value = 'ucg.misPedidos'
             datosTot.cont.style.display = 'none'
+            datosBusqueda.cont.style.display = 'block'
             datosTabla.cont.style.display = 'block'
             datosCarga.cont.style.display = 'none'
             datosAlta.cont.style.display = 'none'
@@ -60,6 +62,7 @@ function asginarPantalla (pantalla) {
         case 'Alta':
             datosHeader.leyenda.value = 'ucg.nuevoPedido'
             datosTot.cont.style.display = 'none'
+            datosBusqueda.cont.style.display = 'none'
             datosTabla.cont.style.display = 'none'
             datosCarga.cont.style.display = 'none'
             datosAlta.cont.style.display = 'block'
@@ -67,6 +70,7 @@ function asginarPantalla (pantalla) {
         default:
             datosHeader.leyenda.value = 'ucg.cargando'
             datosTot.cont.style.display = 'none'
+            datosBusqueda.cont.style.display = 'none'
             datosTabla.cont.style.display = 'none'
             datosCarga.cont.style.display = 'block'
             datosAlta.cont.style.display = 'none'

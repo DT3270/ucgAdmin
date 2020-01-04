@@ -53,7 +53,7 @@ class Campo {
 	constructor(nombre, tipo) {
         this.nombre = nombre;
         this.tipo = tipo;
-		this.ancho = 270;
+		this.ancho = 289;
         this.alto = 30;
     }
     
@@ -77,12 +77,12 @@ class Campo {
             secondDiv.style.position = 'relative';
             secondDiv.style.width = 30 + 'px';
             secondDiv.style.top = -32 + 'px';
-            secondDiv.style.left = 245 + 'px';
+            secondDiv.style.left = 266 + 'px';
             secondDiv.style.marginBottom = -25 + 'px';
         
             var newImg = document.createElement('img');
             switch (help) {
-                case 'h':
+                case 'h': // Help
                     newImg.src = 'img/question-circle-solid.png';
                     newImg.addEventListener('mouseover', function(){
                         newImg.src = 'img/question-circle-solid2.png';
@@ -90,8 +90,16 @@ class Campo {
                     newImg.addEventListener('mouseout', function(){
                         newImg.src = 'img/question-circle-solid.png';
                     });                    
+                    newImg.addEventListener('click', function(){
+                        newLabel.className = 'myInput-PMsg';
+                        if (newLabel.textContent) {
+                            newLabel.textContent = ""
+                        } else {
+                            newLabel.textContent = msg;                    
+                        }
+                    });                    
                     break;
-                default:
+                case 'f': // función
                     newImg.src = 'img/info-circle-solid.png';                    
                     newImg.addEventListener('mouseover', function(){
                         newImg.src = 'img/info-circle-solid2.png';
@@ -99,16 +107,27 @@ class Campo {
                     newImg.addEventListener('mouseout', function(){
                         newImg.src = 'img/info-circle-solid.png';
                     });                    
+                    newImg.addEventListener('click', function(){
+                    });             
+                    break;
+                default: // info
+                    newImg.src = 'img/info-circle-solid.png';                    
+                    newImg.addEventListener('mouseover', function(){
+                        newImg.src = 'img/info-circle-solid2.png';
+                    });                    
+                    newImg.addEventListener('mouseout', function(){
+                        newImg.src = 'img/info-circle-solid.png';
+                    });                    
+                    newImg.addEventListener('click', function(){
+                        newLabel.className = 'myInput-PMsg';
+                        if (newLabel.textContent) {
+                            newLabel.textContent = ""
+                        } else {
+                            newLabel.textContent = msg;                    
+                        }
+                    });                    
                     break;
             }
-            newImg.addEventListener('click', function(){
-                newLabel.className = 'myInput-PMsg';
-                if (newLabel.textContent) {
-                    newLabel.textContent = ""
-                } else {
-                    newLabel.textContent = msg;                    
-                }
-            });                    
             newImg.className = 'myInput-Img';
             newImg.style.height = 20 + 'px';
             newImg.style.width = 20 + 'px';

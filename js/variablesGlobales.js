@@ -27,6 +27,9 @@ datosInicio.imgIniTab = document.getElementById('imgIniTab');
 datosInicio.imgIniAlta = document.getElementById('imgIniAlta');
 datosInicio.selCiclo = document.getElementById('selCiclo');
 
+let datosBusqueda = new Object;
+datosBusqueda.cont =  document.getElementById('contBusqueda');
+
 let datosTot = new Object;
 datosTot.cont =  document.getElementById('contTot');
 datosTot.cantPed = document.getElementById('cantPed');
