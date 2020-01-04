@@ -76,8 +76,9 @@ function dimensionarPantalla() {
     crearTabla(tit, datosTabla.tabla);
     // Aplico la búsqueda si el campo tiene información
     let buscar = document.getElementById('Buscar');
+    console.log(buscar.value)
     if (buscar.value) {
-        $('#tabla').DataTable().search($(this).val()).draw();        
+        $('#tabla').DataTable().search(buscar.value).draw();        
     }
 };
 
