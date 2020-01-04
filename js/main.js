@@ -74,7 +74,11 @@ function dimensionarPantalla() {
     eliminarTabla();
     var tit = ["Ciclo", "Cliente", "Producto", "Cantidad", "Precio Unitario", "%", "Total a Cobrar", "Total a Pagar", "Ganancia", "Puntos", "Notas", ""];
     crearTabla(tit, datosTabla.tabla);
-
+    // Aplico la búsqueda si el campo tiene información
+    let buscar = document.getElementById('Buscar');
+    if (buscar.value) {
+        $('#tabla').DataTable().search($(this).val()).draw();        
+    }
 };
 
 function comportamientoPantalla() {
@@ -364,7 +368,7 @@ function obtenerPedidos() {
     }; // end-request
 };
 
-function cargarTabla(json) {
+function cargarTabla(json) {3
 
     // Recorro el json cargando la tabla.
     var tabla = [];
